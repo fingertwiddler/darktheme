@@ -1,0 +1,129 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {
+        margin: 0;
+        font-family: Sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        background: gold;
+      }
+      hr {
+        background: rgba(0,0,0,0.1);
+        border: none;
+        height: 1px;
+        margin: 40px auto;
+      }
+      h1 {
+        font-size: 40px;
+        line-height: 40px;
+      }
+      nav {
+        padding: 50px;
+        margin: 0 auto;
+        position: sticky;
+        text-align: left;
+        top: 0;
+      }
+      nav h1 {
+        margin: 0;
+        font-size: 80px;
+        letter-spacing: -3px;
+        display: inline-block;
+      }
+      nav h1 a {
+        color: black;
+      }
+      h1 a {
+        text-decoration: none;
+      }
+      header {
+        margin: 0px auto;
+        max-width: 600px;
+      }
+      header h1 {
+        letter-spacing: -3px;
+        font-size: 60px;
+        text-transform: lowercase;
+      }
+      main {
+        margin: 0px auto;
+      }
+      main > .full-image {
+        width: 100%;
+      }
+      main > :not(.full-image) {
+        display: block;
+        max-width: 600px;
+        margin: 20px auto;
+      }
+      main img {
+        width: 100%;
+      }
+      blockquote {
+        font-size: 20px;
+        line-height: 28px;
+        margin: 30px 0;
+        box-shadow: inset 3px 0 0 0 black;
+        font-family: Georgia;
+        font-style: italic;
+        padding-left: 20px;
+      }
+      pre {
+        background: rgba(0,0,0,0.8);
+        padding: 10px;
+        overflow: auto;
+        color: white;
+      }
+      .flexible {
+        flex-grow: 1;
+      }
+      .meta {
+        display: flex;
+        max-width: 600px;
+        margin: 20px auto;
+        color: gold;
+      }
+      .button {
+        text-decoration: none;
+        color: rgba(0,0,0,0.5);
+      }
+      @keyframes spring {
+        0% { transform: scale(1) translateY(0); }
+        10% { transform: scale(1.1, 0.9); }
+        30% { transform: scale(1, 1.2) translateY(0); }
+        50% { transform: scale(1) translateY(0); }
+        100% { transform: translateY(0); }
+      }
+      .spring {
+        animation: spring 2s;
+        animation-timing-function: ease-out;
+        animation-iteration-count: infinite;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <h1 class='spring'><a href="..">{{name}}</a></h1>
+    </nav>
+    <header><h1>{{title}}</h1></header>
+    <div class='meta'>
+      <div class='updated'>{{updated}}</div>
+      <div class='flexible'></div>
+      <!--<a class='button' href="./editor?src={{filename}}">Edit</a>-->
+    </div>
+    <main>{{{content}}}</main>
+    <scr{{!}}ipt src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"></scr{{!}}ipt>
+    <scr{{!}}ipt>
+      document.querySelectorAll(".updated").forEach((el) => {
+        let timestamp = parseInt(el.textContent)
+        let ago = timeago.format(timestamp)
+        el.textContent = ago;
+      })
+    </scr{{!}}ipt>
+  </body>
+</html>
