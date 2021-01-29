@@ -166,11 +166,11 @@
   </head>
   <body>
     <nav>
-      <h1 class='spring'><a href='.'>{{title}}</a></h1>
+      <h1 class='spring'><a href='{{base}}'>{{title}}</a></h1>
     </nav>
     <div class='container'>
     {{#each items}}
-      <a class='row' href="./{{filename}}">
+      <a class='row' href="{{../base}}{{filename}}">
         {{#if meta.updated }}
           <div class='updated'>{{meta.updated}}</div>
         {{/if}}
@@ -184,7 +184,7 @@
         {{/if}}
         {{#if meta.image }}
           <div class='image'>
-            <img src="./{{meta.image}}">
+            <img src="{{../base}}{{meta.image}}">
           </div>
         {{/if}}
       </a>
