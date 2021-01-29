@@ -191,9 +191,9 @@
     <footer>
       {{#each pages}}
         {{#if current}}
-          <a href="./pages/{{number}}" class='current'>{{number}}</a>
+          <a href="{{../base}}pages/{{number}}" class='current'>{{number}}</a>
         {{else}}
-          <a href="./pages/{{number}}">{{number}}</a>
+          <a href="{{../base}}pages/{{number}}">{{number}}</a>
         {{/if}}
       {{/each}}
     </footer>
