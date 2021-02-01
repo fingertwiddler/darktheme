@@ -53,10 +53,13 @@
       main {
         margin: 0px auto;
       }
-      main > .full-image {
-        width: 100%;
+      main > .full {
+        width: 100% !important;
       }
-      main > :not(.full-image) {
+      main > .medium {
+        max-width: 1192px !important;
+      }
+      main > * {
         display: block;
         max-width: 600px;
         margin: 20px auto;
