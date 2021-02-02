@@ -3,7 +3,7 @@ export default async function (o, config, offbase) {
   await processImages(o, config, offbase)
   return res;
 }
-async processImages(o, config, offbase) {
+const processImages = async (o, config, offbase) => {
   let { fs } = offbase;
   let re = /(?:!\[(.*?)\]\((.*?)\))/g
   let matches = o.content.matchAll(re)
@@ -17,7 +17,7 @@ async processImages(o, config, offbase) {
   }
 }
 // Build full HTML page for the post and write to DEST
-async processContent(o, config, offbase) {
+const processContent = async (o, config, offbase) => {
   let { fs } = offbase;
   let theme = await fs.promises.readFile(config.settings.THEME.POST, "utf8")
   let template = Handlebars.compile(theme)
