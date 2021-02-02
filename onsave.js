@@ -1,3 +1,4 @@
+import Handlebars from "https://jspm.dev/handlebars"
 export default async function (o, config, offbase) {
   let res = await processContent(o, config, offbase)
   await processImages(o, config, offbase)
